@@ -59,11 +59,13 @@ This tutorial uses generic class-based views to keep the tutorial concise.  Add 
     class RoomList(ListView):
         model = Room
         context_object_name = "rooms"
+        template_name = "room_list.html"
 
 
     class RoomDetail(DetailView):
         model = Room
         context_object_name = "room"
+        template_name = "room_detail.html"
 
 
     class MessageCreate(CreateView):
