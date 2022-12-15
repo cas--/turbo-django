@@ -130,7 +130,7 @@ Finally, create the templates for the generic views.
     </head>
     <body>
 
-        <a href="{% url 'room_list' %}">Home</a>
+        <a href="{% url 'index' %}">Home</a>
 
         <h1>{{ room.name }}</h1>
 
