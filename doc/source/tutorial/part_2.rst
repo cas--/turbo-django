@@ -63,10 +63,10 @@ This tutorial uses generic class-based views to keep the tutorial concise.  Add 
 
     class RoomDetail(DetailView):
         model = Room
-        context_object_name = "rooms"
+        context_object_name = "room"
 
 
-    class MessageCreateView(CreateView):
+    class MessageCreate(CreateView):
         model = Message
         fields = ["text"]
         template_name = "chat/components/send_message_form.html"
