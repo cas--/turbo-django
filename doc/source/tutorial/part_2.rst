@@ -14,14 +14,14 @@ This chat application will be set up with two simple models: ``Rooms`` and ``Mes
 
     from django.db import models
 
-        class Room(models.Model):
-            name = models.CharField(max_length=255)
 
-        class Message(models.Model):
+    class Room(models.Model):
+        name = models.CharField(max_length=255)
 
-            room = models.ForeignKey(Room, related_name="messages", on_delete=models.CASCADE)
-            text = models.CharField(max_length=255)
-            created_at = models.DateTimeField(auto_now_add=True)
+    class Message(models.Model):
+        room = models.ForeignKey(Room, related_name="messages", on_delete=models.CASCADE)
+        text = models.CharField(max_length=255)
+        created_at = models.DateTimeField(auto_now_add=True)
 
 
 
@@ -51,10 +51,10 @@ This tutorial uses generic class-based views to keep the tutorial concise.  Add 
     :caption: chat/views.py
 
     from django.shortcuts import render, reverse, get_object_or_404
-
     from django.views.generic import CreateView, ListView, DetailView
 
     from chat.models import Room, Message
+
 
     class RoomList(ListView):
         model = Room
@@ -63,10 +63,10 @@ This tutorial uses generic class-based views to keep the tutorial concise.  Add 
 
     class RoomDetail(DetailView):
         model = Room
-        context_object_name = "room"
+        context_object_name = "rooms"
 
 
-    class MessageCreate(CreateView):
+    class MessageCreateView(CreateView):
         model = Message
         fields = ["text"]
         template_name = "chat/components/send_message_form.html"
@@ -136,7 +136,7 @@ Finally, create the templates for the generic views.
 
         <ul id="messages">
             {% for message in room.messages.all %}
-                <li>{{message.created_at}}: {{message.text}}</li>
+                <li>{{ message.created_at }}: {{ message.text }}</li>
             {% endfor %}
         </ul>
 
