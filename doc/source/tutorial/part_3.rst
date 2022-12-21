@@ -35,7 +35,7 @@ With that in mind, let's make a `components/` directory for these sub-templates 
 
 
 .. code-block:: html
-    :caption: templates/chat/room_detail.html
+    :caption: chat/templates/chat/room_detail.html
 
         <head>
             <meta charset="UTF-8">
