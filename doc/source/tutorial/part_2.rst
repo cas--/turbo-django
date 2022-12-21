@@ -59,19 +59,17 @@ This tutorial uses generic class-based views to keep the tutorial concise.  Add 
     class RoomList(ListView):
         model = Room
         context_object_name = "rooms"
-        template_name = "room_list.html"
 
 
     class RoomDetail(DetailView):
         model = Room
         context_object_name = "room"
-        template_name = "room_detail.html"
 
 
     class MessageCreate(CreateView):
         model = Message
         fields = ["text"]
-        template_name = "chat/templates/components/send_message_form.html"
+        template_name = "components/send_message_form.html"
 
         def get_success_url(self):
             # Redirect to the empty form
@@ -101,7 +99,7 @@ Templates
 Finally, create the templates for the generic views.
 
 .. code-block:: html
-    :caption: turbotutorial/chat/templates/room_list.html
+    :caption: turbotutorial/chat/templates/chat/room_list.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -122,7 +120,7 @@ Finally, create the templates for the generic views.
     </html>
 
 .. code-block:: html
-    :caption: turbotutorial/chat/templates/room_detail.html
+    :caption: turbotutorial/chat/templates/chat/room_detail.html
 
     <!DOCTYPE html>
     <html lang="en">
